@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class FirstPart {
+public class SecondPart {
 
 	public static void main(String[] args) throws IOException{
 		File file = new File("secondinput.txt");
@@ -19,18 +19,20 @@ public class FirstPart {
 		}
 		int horizontal = 0;
 		int depth = 0;
+		int aim = 0;
 		for(String i : inputs) {
 			String[] arrOfInput = i.split(" ");
 			String direction = arrOfInput[0];
 			int amount = Integer.parseInt(arrOfInput[1]);
 			if(direction.equals("forward")) {
 				horizontal+=amount;
+				depth += aim * amount;
 			}
 			else if(direction.equals("down")) {
-				depth += amount;
+				aim += amount;
 			}
 			else if(direction.equals("up")) {
-				depth -= amount;
+				aim -= amount;
 			}
 		}
 		System.out.println(horizontal*depth);
